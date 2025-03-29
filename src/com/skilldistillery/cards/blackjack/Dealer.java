@@ -26,6 +26,10 @@ public class Dealer extends Player {
 		
 	}
 	
+	public void showDealersHand() {
+		System.out.println("DEALER " + hand.toString());
+	}
+	
 	public void shuffleDeck() {
 		deck.shuffle();
 	}

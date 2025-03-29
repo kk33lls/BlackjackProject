@@ -22,7 +22,7 @@ public class Player {
 		hand.addCard(card);
 	}
 	
-	public void showHand() {
-		hand.showHand();
+	public void showPlayerHand() {
+		System.out.println("PLAYER " + hand.toString());
 	}
 }

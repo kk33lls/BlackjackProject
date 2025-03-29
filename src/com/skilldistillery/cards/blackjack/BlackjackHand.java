@@ -6,7 +6,18 @@ import com.skilldistillery.cards.common.Hand;
 public class BlackjackHand extends Hand{
 	
 	//NO fields
-	//Create main to test run the methods
+//	public void checkHandValue() {
+//	
+//		int total = getHandValue();
+//		
+//		if (isBlackjack()) {
+//			System.out.print(total + " BLACKJACK!!");
+//		} else if (isBust()) {
+//			System.out.println(total + " BUST");
+//		} else {
+//			System.out.println("Current value of hand: " + total);
+//		}
+//	}
 
 	@Override
 	public int getHandValue() {
@@ -18,21 +29,24 @@ public class BlackjackHand extends Hand{
 			if(card.getValue() == 11) {
 				total += 11;
 				numAces++;
-			} else {
+			} else{
 				total += card.getValue();
 			}
-		}
 		while(total > 21 && numAces > 0) {
 			total -= 10;
 			numAces--;
+			}
 		}
+		System.out.println("Current value of hand: " + total);
 		return total;
+		
 	}
 	
 	//Stretch goal
 	public boolean isBlackjack() {
-		int value = getHandValue();
-		if(value == 21) {
+		int total = getHandValue();
+		if(total == 21) {
+			System.out.println(total + " BLACKJACK!!");
 			return true;
 		}
 		return false;
@@ -40,8 +54,9 @@ public class BlackjackHand extends Hand{
 	}
 	
 	public boolean isBust() {
-		int value = getHandValue();
-		if(value > 21) {
+		int total = getHandValue();
+		if(total > 21) {
+			System.out.println(total + " BUST");
 		return true;
 		}
 		return false;
