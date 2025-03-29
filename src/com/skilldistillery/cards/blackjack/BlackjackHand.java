@@ -5,19 +5,20 @@ import com.skilldistillery.cards.common.Hand;
 
 public class BlackjackHand extends Hand{
 	
-	//NO fields
-//	public void checkHandValue() {
-//	
-//		int total = getHandValue();
-//		
-//		if (isBlackjack()) {
-//			System.out.print(total + " BLACKJACK!!");
-//		} else if (isBust()) {
-//			System.out.println(total + " BUST");
-//		} else {
-//			System.out.println("Current value of hand: " + total);
-//		}
-//	}
+	// NO fields
+	public String printWinner(int playerTotal, int dealerTotal) {
+		if (playerTotal > 21) {
+			return "Player busts, Dealer wins";
+		} else if (dealerTotal > 21) {
+			return "Dealer busts, Player wins";
+		} else if (playerTotal == dealerTotal) {
+			return "Push";
+		} else if (playerTotal > dealerTotal) {
+			return "Player wins";
+		} else {
+			return "Dealer wins";
+		}
+	}
 
 	@Override
 	public int getHandValue() {
@@ -37,7 +38,6 @@ public class BlackjackHand extends Hand{
 			numAces--;
 			}
 		}
-		System.out.println("Current value of hand: " + total);
 		return total;
 		
 	}

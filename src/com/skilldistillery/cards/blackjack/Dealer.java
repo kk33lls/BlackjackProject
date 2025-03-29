@@ -22,7 +22,7 @@ public class Dealer extends Player {
 		
 	}
 	
-	public void stand(Card card) {
+	public void Stand(Card card) {
 		
 	}
 	
@@ -32,6 +32,10 @@ public class Dealer extends Player {
 	
 	public void shuffleDeck() {
 		deck.shuffle();
+	}
+	
+	public String printWinner(int playerTotal, int dealerTotal) {
+		return this.hand.printWinner(playerTotal, dealerTotal);
 	}
 	
 }
