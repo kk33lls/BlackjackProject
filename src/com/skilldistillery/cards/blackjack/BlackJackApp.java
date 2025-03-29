@@ -61,14 +61,22 @@ public class BlackJackApp {
 				System.out.println("New card is being added..");
 				player.addCard(dealer.dealCard());
 				player.showPlayerHand();
-				player.getHandValue();
-  //TODO Need to create a method in player that takes the above emthod calls and returns a value so that we can exit the loop once we Bust or hit blackjack
+				
+				if(player.getHandValue() >= 21) {
+					if(player.getHandValue() > 21) {
+						player.isBust();
+					} else if(player.getHandValue() == 21) {
+						player.isBlackjack();
+					}
+				}
+ 
 			} else if(hitOrStand.equals("stand")) {
 				//Dealer shows both cards
 				System.out.println("Dealer faces their card up...");
 				dealer.showDealersHand();
 				dealer.getHandValue();
-	//TODO Determine winner, create a method maybe inside the app?
+				//TODO stand method
+	   //TODO Determine winner, create a method maybe inside the app?
 			} else {
 				System.err.println("Invalid input try again");
 			}
@@ -76,6 +84,9 @@ public class BlackJackApp {
 
 	}
 
-		 
+		 //Currently the app deals intial set of cards, asks user to hit or stand
+	// has implications for hit, but not stand, app still needs method for determining
+	//who won and and a stand method that carries out the dealer drawing until 17 or more
+	
 	}
 
