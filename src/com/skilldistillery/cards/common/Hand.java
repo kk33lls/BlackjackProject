@@ -6,8 +6,7 @@ import java.util.List;
 public abstract class Hand  {
 
 	protected List<Card> cardsInHand;
-	
-	//NO GETTERS
+
 
 	public Hand() {
 		cardsInHand = new ArrayList<>();

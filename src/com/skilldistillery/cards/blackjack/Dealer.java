@@ -4,11 +4,10 @@ import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Deck;
 
 public class Dealer extends Player {
- //Hit, stand, deal cards
-	//no getters for deck
+
 	
 	private Deck deck;
-	//^ no more fields
+	
 	public Dealer() {
 		super();
 		deck = new Deck();

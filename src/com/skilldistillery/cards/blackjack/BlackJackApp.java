@@ -22,10 +22,10 @@ public class BlackJackApp {
 	}
 	
 	public void launch() {
-		if(dealFirstHand()) {
-		hitOrStandOption();
+		while (dealFirstHand()) {
+			hitOrStandOption();
 		}
-		
+
 	}
 	
 	public boolean dealFirstHand() {
@@ -104,7 +104,7 @@ public class BlackJackApp {
 					System.out.println("The dealer gets a new card...");
 					dealer.addCard(dealer.dealCard());
 					dealer.showDealersHand();
-					System.out.println("Current hand value is " + dealer.getHandValue());
+					System.out.println("Dealer's hand value is " + dealer.getHandValue());
 
 					// If dealer busts, user wins
 					if (dealer.getHandValue() > 21) {
@@ -115,7 +115,8 @@ public class BlackJackApp {
 						dealer.isBlackjack();
 						System.out.println("Dealer wins! Thanks for playing...");
 						isTrue = false;
-					} else if (dealer.getHandValue() >= player.getHandValue()) {
+					} 
+					else if (dealer.getHandValue() >= player.getHandValue()) {
 						System.out.println("Dealer wins...");
 						isTrue = false;
 					} else {
@@ -126,6 +127,7 @@ public class BlackJackApp {
 			} else {
 				System.err.println("Invalid input try again");
 			}
+			
 		} while (isTrue);
 
 	}
