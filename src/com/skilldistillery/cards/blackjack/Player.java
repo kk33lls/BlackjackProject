@@ -10,9 +10,6 @@ public class Player {
 		hand = new BlackjackHand();
 	}
 	
-	public void hit(Card card) {
-		this.hand.addCard(card);
-	}
 	
 	public int getHandValue() {
 		return this.hand.getHandValue();
@@ -32,5 +29,24 @@ public class Player {
 		return this.hand.isBust();
 	}
 	
-	
+//	public boolean hit() {
+//		// Player recieves another card
+//		System.out.println("New card is being added..");
+//		addCard(.);
+//		showPlayerHand();
+//		System.out.println("Current hand value is " + getHandValue());
+//		
+//		if(getHandValue() >= 21) {
+//			if(getHandValue() > 21) {
+//				isBust();
+//				System.out.println("You lose! Thanks for playing...");
+//				return false;
+//			} else if(getHandValue() == 21) {
+//				isBlackjack();
+//				System.out.println("You win! Thanks for playing...");
+//				return false;
+//			}
+//	}
+//	
+//  }
 }

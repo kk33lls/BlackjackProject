@@ -22,11 +22,10 @@ public class BlackJackApp {
 	}
 	
 	public void launch() {
-		while (dealFirstHand()) {
-			hitOrStandOption();
+		dealFirstHand();
+		hitOrStandOption();
 		}
 
-	}
 	
 	public boolean dealFirstHand() {
 		System.out.println("The dealer is laying out the first hand of cards...");
@@ -49,11 +48,16 @@ public class BlackJackApp {
 		dealer.addCard(dealer.dealCard());
 		
 	
-		if(player.getHandValue() == 21) {
+		if(player.getHandValue() == 21 || dealer.getHandValue() == 21) {
 			player.isBlackjack();
-			System.out.println("Thanks for playing...");
+			System.out.println("You win!! Thanks for playing...");
 			return false;	
+		} else if(dealer.getHandValue() == 21) {
+			dealer.isBlackjack();
+			System.out.println("Dealer wins! Thanks for playing...");
+			return false;
 		}
+
 		return true;
 
 	}
@@ -87,43 +91,16 @@ public class BlackJackApp {
 				}
  
 			} else if (hitOrStand.equals("stand")) {
-				// Dealer shows both cards
-				System.out.println("Dealer faces their card up...");
-				dealer.showDealersHand();
-				System.out.println("Dealers hand value is " + dealer.getHandValue());
-				
-				//Exits if dealer has blackjack
-				if(dealer.getHandValue() == 21) {
-					dealer.isBlackjack();
-					System.out.println("Dealer wins! Thanks for playing...");
-					isTrue = false;
-				}
-				// Checks for rule of 17
-				while (dealer.getHandValue() <= 16) {
-					// If less than or equal to 16, dealer continues drawing cards
-					System.out.println("The dealer gets a new card...");
-					dealer.addCard(dealer.dealCard());
-					dealer.showDealersHand();
-					System.out.println("Dealer's hand value is " + dealer.getHandValue());
 
-					// If dealer busts, user wins
-					if (dealer.getHandValue() > 21) {
-						System.out.println("Player wins!!!");
-						System.out.println("Thanks for playing...");
-						isTrue = false;
-					} else if (dealer.getHandValue() == 21) {
-						dealer.isBlackjack();
+				if(dealer.stand() == true) {
+					if(dealer.getHandValue() >= player.getHandValue()) {
 						System.out.println("Dealer wins! Thanks for playing...");
 						isTrue = false;
-					} 
-					else if (dealer.getHandValue() >= player.getHandValue()) {
-						System.out.println("Dealer wins...");
-						isTrue = false;
-					} else {
-						System.out.println("Player wins!!");
-						isTrue = false;
 					}
-				}
+					else {
+						System.out.println("Player wins! Thanks for playing...");
+					}
+				} isTrue = false;
 			} else {
 				System.err.println("Invalid input try again");
 			}
