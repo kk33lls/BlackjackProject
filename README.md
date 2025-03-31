@@ -20,3 +20,5 @@ When the application begins the dealer deals two cards to itself and the player.
 
  ## Lessons Learned
 Biggest lesson learned here was to debug sooner than later. Decided to wait until later on to re-run my code and still make sure evrything was working only to figure out there were still some bugs in it that needed fixing. Next time, I will make sure to do this earlier on. Secondly, I should make a laid out plan of how I want to write out my code to keep it cleaner and concise.
+
+![It-was-me](https://github.com/user-attachments/assets/eae30a77-c6a4-4103-a8ac-2dd0565f859e)
